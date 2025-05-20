@@ -1,0 +1,21 @@
+1-Page Summary: Model Performance Analysis Dataset Overview: The Social Network Ads Dataset (~400 rows) predicts whether a user purchases a product based on Gender, Age, and EstimatedSalary. After preprocessing (dropping User ID, encoding Gender, standardizing features), we trained Gaussian Naive Bayes, K-Nearest Neighbors (KNN with k=3, 5, 7), and Decision Tree (Gini and Entropy criteria) classifiers on a 75/25 train-test split. Models were evaluated using accuracy, precision, recall, F1-score, and confusion matrices.
+
+Model Performance:
+
+Gaussian Naive Bayes: Achieved high accuracy (0.93), precision (0.94), and F1-score (0.90), but recall (0.86) was lower, indicating some missed positive cases (5 false negatives). Its simplicity and assumption of feature independence yield robust performance.
+
+KNN:
+
+k=3: Accuracy (0.91), balanced precision (0.87), and recall (0.89), but slightly overfits due to sensitivity to local noise (9 misclassifications).
+
+k=5: Accuracy (0.92), precision (0.87), recall (0.92), F1-score (0.89). Balanced performance with fewer errors (8 misclassifications).
+
+k=7: Highest accuracy (0.93), recall (0.95), and F1-score (0.91), but precision (0.88) slightly lower. Smoother decision boundaries reduce overfitting (7 misclassifications).
+
+Decision Tree (Gini and Entropy): Both have identical, lower performance (accuracy 0.84, precision 0.80, recall 0.76, F1-score 0.78). High misclassifications (16 errors) suggest overfitting, as unpruned trees create complex splits (7 false positives, 9 false negatives).
+
+Best Model:
+
+KNN (k=7) performs best, with the highest accuracy (0.93), recall (0.95), and F1-score (0.91). It balances local pattern capture with generalization, minimizing errors. Naive Bayes is competitive but less effective for correlated features. Decision Trees underperform due to overfitting, evident in jagged decision boundaries.
+
+Conclusion: KNN (k=7) is recommended for its superior performance and adaptability to the dataset’s patterns, highlighting the importance of tuning model complexity in classification tasks.
